@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tapas — Bar · Cafetería</title>
+  <meta name="description" content="Bar · Cafetería in Tenerife. Breakfast, Brunch, Tapas, Smoothies, Cold Drinks & Takeaway." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fff9f1;
+      --ink:#2b2b2b;
+      --accent:#ff7a00;   /* brand orange */
+      --accent-dk:#b45a00; /* brownish shadow */
+      --card:#ffffff;
+      --muted:#6d6d6d;
+      --radius:18px;
+      --pad:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);}
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;gap:16px;justify-content:space-between;margin-bottom:20px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-dk));box-shadow:0 6px 16px rgba(0,0,0,.15);display:grid;place-items:center;color:white;font-weight:800}
+    h1{font-size:clamp(22px,4vw,32px);margin:0;letter-spacing:0.2px}
+    .lang{
+      display:flex;gap:8px;align-items:center
+    }
+    .pill{border:1px solid #e6e0d8;padding:8px 12px;border-radius:999px;background:#fff;cursor:pointer}
+    .pill.active{background:var(--accent);color:white;border-color:transparent}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin:8px 0 26px}
+    .card{background:var(--card);border-radius:var(--radius);padding:var(--pad);box-shadow:0 10px 30px rgba(0,0,0,.06);}
+    .hero .a{min-height:220px;background:
+      radial-gradient(80% 100% at 100% 0%, rgba(255,122,0,.18), rgba(255,122,0,0) 60%),
+      url('https://images.unsplash.com/photo-1604908554118-8f24f46b3f1b?q=80&w=1400&auto=format&fit=crop');
+      background-size:cover;background-position:center;border-radius:var(--radius)}
+    .hero .b{display:flex;flex-direction:column;gap:10px}
+    .badges{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{font-size:12px;background:#fff3e8;color:#9b4500;border:1px solid #ffd7b0;padding:6px 10px;border-radius:999px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+    section h2{margin:0 0 8px;font-size:clamp(18px,3.8vw,24px)}
+    .item{display:flex;justify-content:space-between;gap:12px;padding:12px;border-radius:14px;border:1px dashed #eee;background:#fff}
+    .item .name{font-weight:600}
+    .muted{color:var(--muted)}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .hours{font-feature-settings:"tnum" 1;letter-spacing:0.2px}
+    footer{margin:30px 0 10px;color:var(--muted);font-size:14px}
+    .cta{display:inline-flex;gap:8px;align-items:center;background:var(--accent);color:#fff;padding:10px 14px;border-radius:12px;font-weight:600;box-shadow:0 6px 18px rgba(255,122,0,.35);text-decoration:none}
+    .cta:active{transform:translateY(1px)}
+    .divider{height:1px;background:#eee;margin:10px 0}
+    .sr{position:absolute;left:-9999px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden>TA</div>
+        <div>
+          <h1 data-i18n="site_title">Tapas — Bar · Cafetería</h1>
+          <div class="row muted hours" data-i18n="hours">Open daily · 07:00–22:00</div>
+        </div>
+      </div>
+      <nav class="lang" aria-label="Language">
+        <button class="pill active" data-lang="en">EN</button>
+        <button class="pill" data-lang="es">ES</button>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <div class="card a" role="img" aria-label="Coffee and tapas"></div>
+      <div class="b">
+        <div class="card">
+          <div class="badges">
+            <span class="badge" data-i18n="badge_fresh">Fresh · Local</span>
+            <span class="badge" data-i18n="badge_takeaway">Takeaway</span>
+            <span class="badge" data-i18n="badge_wifi">Free Wi‑Fi</span>
+          </div>
+          <div class="divider"></div>
+          <p class="muted" data-i18n="tagline">Breakfast, brunch, tapas, and great coffee in the heart of Tenerife.</p>
+          <a href="#menu" class="cta" data-i18n="view_menu">View Menu</a>
+        </div>
+        <div class="card">
+          <strong data-i18n="address_title">Find us</strong>
+          <div class="muted" data-i18n="address_text">Your street, Tenerife · +34 600 000 000</div>
+        </div>
+      </div>
+    </div>
+
+    <section id="menu" class="grid">
+      <div class="card">
+        <h2 data-i18n="cat_breakfast">Breakfast · 07:00–13:00</h2>
+        <div class="item"><span class="name" data-i18n="bf_toast">Avocado toast</span><span>5,90 €</span></div>
+        <div class="item"><span class="name" data-i18n="bf_eggs">Eggs any style</span><span>4,50 €</span></div>
+        <div class="item"><span class="name" data-i18n="bf_pastry">Croissant & jam</span><span>3,20 €</span></div>
+      </div>
+      <div class="card">
+        <h2 data-i18n="cat_brunch">Brunch · 10:00–14:00</h2>
+        <div class="item"><span class="name" data-i18n="br_chorizo">Spanish omelette</span><span>7,50 €</span></div>
+        <div class="item"><span class="name" data-i18n="br_bowl">Granola bowl</span><span>6,20 €</span></div>
+        <div class="item"><span class="name" data-i18n="br_benny">Eggs Benedict</span><span>8,90 €</span></div>
+      </div>
+      <div class="card">
+        <h2 data-i18n="cat_tapas">Tapas</h2>
+        <div class="item"><span class="name" data-i18n="tp_potatoes">Papas arrugadas & mojo</span><span>5,80 €</span></div>
+        <div class="item"><span class="name" data-i18n="tp_croquetas">Croquetas mixtas</span><span>7,20 €</span></div>
+        <div class="item"><span class="name" data-i18n="tp_gambas">Gambas al ajillo</span><span>9,50 €</span></div>
+      </div>
+      <div class="card">
+        <h2 data-i18n="cat_smoothies">Batidos · Smoothies</h2>
+        <div class="item"><span class="name" data-i18n="sm_tropical">Tropical (mango, piña, plátano)</span><span>5,50 €</span></div>
+        <div class="item"><span class="name" data-i18n="sm_green">Verde (espinaca, manzana, kiwi)</span><span>5,50 €</span></div>
+        <div class="item"><span class="name" data-i18n="sm_berry">Frutos rojos</span><span>5,50 €</span></div>
+      </div>
+      <div class="card">
+        <h2 data-i18n="cat_cold">Cold Drinks</h2>
+        <div class="item"><span class="name" data-i18n="cd_iced_coffee">Iced coffee</span><span>3,20 €</span></div>
+        <div class="item"><span class="name" data-i18n="cd_iced_tea">Iced tea</span><span>3,00 €</span></div>
+        <div class="item"><span class="name" data-i18n="cd_softs">Soft drinks</span><span>2,50 €</span></div>
+        <div class="item"><span class="name" data-i18n="cd_juice">Fresh juice</span><span>3,90 €</span></div>
+        <div class="item"><span class="name" data-i18n="cd_water">Water still/sparkling</span><span>1,80 €</span></div>
+      </div>
+      <div class="card">
+        <h2 data-i18n="cat_hot">Hot Drinks</h2>
+        <div class="item"><span class="name" data-i18n="hd_cafe_con_leche">Café con leche</span><span>1,80 €</span></div>
+        <div class="item"><span class="name" data-i18n="hd_cortado">Cortado</span><span>1,60 €</span></div>
+        <div class="item"><span class="name" data-i18n="hd_leche_leche">Leche y leche</span><span>1,80 €</span></div>
+        <div class="item"><span class="name" data-i18n="hd_cappuccino">Cappuccino</span><span>2,60 €</span></div>
+        <div class="item"><span class="name" data-i18n="hd_latte">Latte</span><span>2,80 €</span></div>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Gallery">
+      <div class="card">
+        <h2 data-i18n="gallery">Gallery</h2>
+        <div class="row" id="gallery" style="gap:10px;flex-wrap:wrap">
+          <img src="https://picsum.photos/seed/tapas1/360/240" alt="Tapas" style="width:calc(50% - 5px);border-radius:14px"/>
+          <img src="https://picsum.photos/seed/tapas2/360/240" alt="Coffee" style="width:calc(50% - 5px);border-radius:14px"/>
+          <img src="https://picsum.photos/seed/tapas3/360/240" alt="Brunch" style="width:calc(50% - 5px);border-radius:14px"/>
+          <img src="https://picsum.photos/seed/tapas4/360/240" alt="Terrace" style="width:calc(50% - 5px);border-radius:14px"/>
+        </div>
+      </div>
+      <div class="card">
+        <h2 data-i18n="takeaway">Takeaway</h2>
+        <p class="muted" data-i18n="takeaway_text">Call or WhatsApp to order in advance. Pick‑up at the bar.</p>
+        <a class="cta" href="tel:+34600000000" aria-label="Call now">📞 <span data-i18n="call_us">Call us</span></a>
+      </div>
+    </section>
+
+    <footer class="wrap">
+      <div class="divider"></div>
+      <div class="row">
+        <span data-i18n="footer_rights">© 2025 Tapas. All rights reserved.</span>
+        <span>·</span>
+        <a href="#" data-i18n="footer_privacy">Privacy</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Simple bilingual strings (EN default → ES)
+    const i18n = {
+      es: {
+        site_title: 'Tapas — Bar · Cafetería',
+        hours: 'Abierto cada día · 07:00–22:00',
+        badge_fresh: 'Fresco · Local',
+        badge_takeaway: 'Para llevar',
+        badge_wifi: 'Wi‑Fi gratis',
+        tagline: 'Desayunos, brunch, tapas y buen café en el corazón de Tenerife.',
+        view_menu: 'Ver carta',
+        address_title: 'Dónde estamos',
+        address_text: 'Tu calle, Tenerife · +34 600 000 000',
+        cat_breakfast: 'Desayunos · 07:00–13:00',
+        bf_toast: 'Tostada de aguacate',
+        bf_eggs: 'Huevos a tu gusto',
+        bf_pastry: 'Croissant y mermelada',
+        cat_brunch: 'Brunch · 10:00–14:00',
+        br_chorizo: 'Tortilla española',
+        br_bowl: 'Bol de granola',
+        br_benny: 'Huevos Benedict',
+        cat_tapas: 'Tapas',
+        tp_potatoes: 'Papas arrugadas con mojo',
+        tp_croquetas: 'Croquetas mixtas',
+        tp_gambas: 'Gambas al ajillo',
+        cat_smoothies: 'Batidos · Smoothies',
+        sm_tropical: 'Tropical (mango, piña, plátano)',
+        sm_green: 'Verde (espinaca, manzana, kiwi)',
+        sm_berry: 'Frutos rojos',
+        cat_cold: 'Bebidas frías',
+        cd_iced_coffee: 'Café con hielo',
+        cd_iced_tea: 'Té frío',
+        cd_softs: 'Refrescos',
+        cd_juice: 'Zumo natural',
+        cd_water: 'Agua sin/con gas',
+        cat_hot: 'Bebidas calientes',
+        hd_cafe_con_leche: 'Café con leche',
+        hd_cortado: 'Cortado',
+        hd_leche_leche: 'Leche y leche',
+        hd_cappuccino: 'Capuchino',
+        hd_latte: 'Latte',
+        gallery: 'Galería',
+        takeaway: 'Para llevar',
+        takeaway_text: 'Llama o envía WhatsApp para reservar. Recogida en barra.',
+        call_us: 'Llámanos',
+        footer_rights: '© 2025 Tapas. Todos los derechos reservados.',
+        footer_privacy: 'Privacidad'
+      }
+    }
+
+    const langButtons = document.querySelectorAll('.pill[data-lang]');
+    const setLang = (lang) => {
+      langButtons.forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+      const map = i18n[lang] || {};
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const key = el.getAttribute('data-i18n');
+        if(map[key]) el.textContent = map[key];
+      })
+      document.documentElement.lang = lang === 'es' ? 'es' : 'en';
+    }
+    langButtons.forEach(btn=>btn.addEventListener('click', ()=> setLang(btn.dataset.lang)));
+  </script>
+</body>
+</html>
